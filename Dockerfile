@@ -1,12 +1,9 @@
-FROM node:16
+FROM node:16-alpine
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm install
-
 EXPOSE 3000 8081
 
-CMD ["npm", "start"]
-
+CMD sh -c 'trap "exit" TERM; while true; do sleep 1; done'
